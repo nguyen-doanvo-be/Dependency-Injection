@@ -20,61 +20,61 @@ class AdvanceEmailService implements EmailService {
     
 }
 
-// NOT USING DEPENDENCY INJECTION
-// class Invoice1 {
-//     private id: number;
-//     private customerName: string;
-//     private amount: number;
-//     private dueDate: Date;
-//     private isPaid: boolean; 
-//     // private simpleEmailService: EmailService;
-//     private advanceEmailService: EmailService;
+NOT USING DEPENDENCY INJECTION
+class Invoice1 {
+    private id: number;
+    private customerName: string;
+    private amount: number;
+    private dueDate: Date;
+    private isPaid: boolean; 
+    // private simpleEmailService: EmailService;
+    private advanceEmailService: EmailService;
 
-//     // 
-//     constructor(id: number, customerName: string, amount: number, dueDate: Date, isPaid: boolean, advanceEmailService: EmailService) {
-//         this.id = id;
-//         this.customerName = customerName;
-//         this.amount = amount;
-//         this.dueDate = dueDate;
-//         this.isPaid = isPaid;
-//         this.simpleEmailService = simpleEmailService; // if simpleEmailService change, we have to modify code in constructor, kindly annoying.
-//         this.advanceEmailService = advanceEmailService;
-//     }
+    // 
+    constructor(id: number, customerName: string, amount: number, dueDate: Date, isPaid: boolean, advanceEmailService: EmailService) {
+        this.id = id;
+        this.customerName = customerName;
+        this.amount = amount;
+        this.dueDate = dueDate;
+        this.isPaid = isPaid;
+        this.simpleEmailService = simpleEmailService; // if simpleEmailService change, we have to modify code in constructor, kindly annoying.
+        this.advanceEmailService = advanceEmailService;
+    }
 
-//     markAsPaid(): void {
-//         this.isPaid = true;
-//         console.log(`Invoice ${this.id} has been marked as paid.`);
-//     }
+    markAsPaid(): void {
+        this.isPaid = true;
+        console.log(`Invoice ${this.id} has been marked as paid.`);
+    }
 
-//     sendReminder(): void {
-//         const subject = `Reminder: Invoice ${this.id} is due soon`;
-//         const body = `Dear ${this.customerName},\n\nThis is a reminder that the payment for invoice ${this.id} is due on ${this.dueDate.toDateString()}. Please make the payment as soon as possible.`;
-//         this.simpleEmailService.sendEmail(this.customerName, subject, body);
-//     }
+    sendReminder(): void {
+        const subject = `Reminder: Invoice ${this.id} is due soon`;
+        const body = `Dear ${this.customerName},\n\nThis is a reminder that the payment for invoice ${this.id} is due on ${this.dueDate.toDateString()}. Please make the payment as soon as possible.`;
+        this.simpleEmailService.sendEmail(this.customerName, subject, body);
+    }
 
-//     getInvoiceDetails(): string {
-//         return `Invoice ID: ${this.id}, Customer: ${this.customerName}, Amount: ${this.amount}, Due Date: ${this.dueDate.toDateString()}, Paid: ${this.isPaid}`;
-//     }
+    getInvoiceDetails(): string {
+        return `Invoice ID: ${this.id}, Customer: ${this.customerName}, Amount: ${this.amount}, Due Date: ${this.dueDate.toDateString()}, Paid: ${this.isPaid}`;
+    }
 
-//     sendReminderWithAttachment(): void {
-//         const subject = `Attachment: Invoice ${this.id}`;
-//         const body = `Dear ${this.customerName},\n\nPlease find the attached invoice for your reference.\n\nRegards,\nInvoice Management System`;
-//         const attachment = `invoice_${this.id}.pdf`;
-//         if(this.advanceEmailService.sendEmailWithAttachment) {
-//             this.advanceEmailService.sendEmailWithAttachment(this.customerName, subject, body, attachment);
-//         }
-//         else
-//         {
-//             console.log("No Attachment");
-//         }
-//     }
-// }
+    sendReminderWithAttachment(): void {
+        const subject = `Attachment: Invoice ${this.id}`;
+        const body = `Dear ${this.customerName},\n\nPlease find the attached invoice for your reference.\n\nRegards,\nInvoice Management System`;
+        const attachment = `invoice_${this.id}.pdf`;
+        if(this.advanceEmailService.sendEmailWithAttachment) {
+            this.advanceEmailService.sendEmailWithAttachment(this.customerName, subject, body, attachment);
+        }
+        else
+        {
+            console.log("No Attachment");
+        }
+    }
+}
 
-// const aes = new AdvanceEmailService();
-// const invoice = new Invoice1(123, 'John Doe', 1000, new Date('2023-06-15'), false, aes);
+const aes = new AdvanceEmailService();
+const invoice = new Invoice1(123, 'John Doe', 1000, new Date('2023-06-15'), false, aes);
 
-// invoice.getInvoiceDetails();
-// invoice.sendReminderWithAttachment()
+invoice.getInvoiceDetails();
+invoice.sendReminderWithAttachment()
 
 // USING DEPENDENCY INJECTION
 class Invoice2 {

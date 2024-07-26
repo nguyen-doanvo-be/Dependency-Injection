@@ -76,15 +76,13 @@ class Invoice2 {
     }
 }
 
-// Sử dụng Factory để tạo ra các dịch vụ email
+// Using Factory
 const simpleEmailService = EmailServiceFactory.getEmailService('simple');
 const advanceEmailService = EmailServiceFactory.getEmailService('advance');
 
-// Tạo các đối tượng hóa đơn với dịch vụ email tương ứng
 const invoice1 = new Invoice2(123, 'John Doe', 1000, new Date('2023-06-15'), false, simpleEmailService);
 const invoice2 = new Invoice2(124, 'Jane Smith', 1500, new Date('2023-07-15'), false, advanceEmailService);
 
-// Sử dụng các phương thức của đối tượng hóa đơn
 invoice1.getInvoiceDetails();
 invoice1.sendReminder();
 invoice1.markAsPaid();

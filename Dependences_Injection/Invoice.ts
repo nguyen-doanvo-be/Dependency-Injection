@@ -37,7 +37,7 @@ class Invoice1 {
         this.amount = amount;
         this.dueDate = dueDate;
         this.isPaid = isPaid;
-        // this.simpleEmailService = simpleEmailService; // if simpleEmailService change, we have to modify code in constructor, kindly annoying.
+        this.simpleEmailService = simpleEmailService; // if simpleEmailService change, we have to modify code in constructor, kindly annoying.
         this.advanceEmailService = advanceEmailService;
     }
 
@@ -46,11 +46,11 @@ class Invoice1 {
         console.log(`Invoice ${this.id} has been marked as paid.`);
     }
 
-    // sendReminder(): void {
-    //     const subject = `Reminder: Invoice ${this.id} is due soon`;
-    //     const body = `Dear ${this.customerName},\n\nThis is a reminder that the payment for invoice ${this.id} is due on ${this.dueDate.toDateString()}. Please make the payment as soon as possible.`;
-    //     this.simpleEmailService.sendEmail(this.customerName, subject, body);
-    // }
+    sendReminder(): void {
+        const subject = `Reminder: Invoice ${this.id} is due soon`;
+        const body = `Dear ${this.customerName},\n\nThis is a reminder that the payment for invoice ${this.id} is due on ${this.dueDate.toDateString()}. Please make the payment as soon as possible.`;
+        this.simpleEmailService.sendEmail(this.customerName, subject, body);
+    }
 
     getInvoiceDetails(): string {
         return `Invoice ID: ${this.id}, Customer: ${this.customerName}, Amount: ${this.amount}, Due Date: ${this.dueDate.toDateString()}, Paid: ${this.isPaid}`;

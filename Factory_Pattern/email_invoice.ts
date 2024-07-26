@@ -19,6 +19,7 @@ class AdvanceEmailService implements EmailService {
     }
 }
 
+// Factory
 class EmailServiceFactory {
     static getEmailService(type: string): EmailService {
         if (type === 'simple') {
@@ -88,6 +89,19 @@ invoice1.getInvoiceDetails();
 invoice1.sendReminder();
 invoice1.markAsPaid();
 invoice1.getInvoiceDetails();
+// Output: 
+// Sending email to John Doe with subject: Reminder: Invoice 123 is due soon and body: 
+// Dear John Doe,
+// This is a reminder that the payment for invoice 123 is due on Thu Jun 15 2023. Please make the payment as soon as possible.
+// Regards,
+// Invoice Management System
+// Invoice 123 has been marked as paid.
 
 invoice2.getInvoiceDetails();
 invoice2.sendReminderWithAttachment();
+// Output:
+// Sending email to Jane Smith with subject: Attachment: Invoice 124 and body: 
+// Dear Jane Smith,
+// Please find the attached invoice for your reference.
+// Regards,
+// Invoice Management System with attachment: invoice_124.pdf
